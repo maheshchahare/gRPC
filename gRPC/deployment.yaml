@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: grpc-chatbot
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: grpc-chatbot
+
+  template:
+    metadata:
+      labels:
+        app: grpc-chatbot
+
+    spec:
+      containers:
+      - name: grpc-chatbot
+        image: YOUR_ACR/grpc-chatbot:latest
+
+        ports:
+        - containerPort: 50051
